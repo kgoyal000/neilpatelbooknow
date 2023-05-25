@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>SwipeUp</title>
+</head>
+<body>
+    <div class="desktop-swipe-container">
+        <div class="cta">
+            <p class="close">
+                <img loading="lazy" class="img" src="https://neilpatel.com/wp-content/themes/neilpatel/images/close-t.svg" width="10" height="10" alt="Close">
+            </p>
+            <p class="img-w">
+                <img loading="lazy" class="img" src="https://neilpatel.com/wp-content/themes/neilpatel/images/bottom-box-cta/neil.png" width="172" height="154" alt="Neil Patel">
+            </p>
+            <div class="text">
+                <p class="title">I hope you enjoy reading this blog post.</p>
+                <p class="description">If you want my team at Neil Patel Digital to help you get more traffic, just book a call.</p>
+            </div>
+            <p class="btn-w">
+                <a class="btn" href="https://neilpatel.com/consulting/">Book a Call</a>
+            </p>
+        </div>
+    </div>
+    <div class="mobile-swipe-container mobile_swipe1" id="mobile_swipe">
+        <div id="panel">
+            <div class="step">
+                <p class="img-w">
+                    <img loading="lazy" class="img" src="https://neilpatel.com/wp-content/themes/neilpatel/images/bottom-box-mobile/neil.png" width="165" height="145" alt="Neil Patel">
+                </p>
+                <p class="title">See How My Agency Can Drive More Traffic to Your Website</p>
+                <ul class="text-list">
+                    <li class="item">
+                        <strong>SEO</strong> – unlock more SEO traffic. See real results.
+                    </li>
+                    <li class="item">
+                        <strong>Content Marketing</strong> – our team creates epic content that will get shared, get links, and attract traffic.
+                    </li>
+                    <li class="item">
+                        <strong>Paid Media</strong> – effective paid strategies with clear ROI.
+                    </li>
+                </ul>
+                <p>
+                    <a class="btn btn-wrr" href="https://neilpatel.com/consulting/?cf-source=bbm">Book a call</a>
+                </p>
+            </div>
+        </div>
+        <button id="flip"><span class="red">Swipe Up</span>  to Get More Traffic!</button>
+    </div>
+    <script>
+        $(document).ready(function(){
+    $("#flip").click(function(e){
+        $("#panel").slideToggle("slow");
+        console.log(e.target.parentNode.className)
+        if(e.target.parentNode.className=='mobile-swipe-container mobile_swipe1'){
+            $("#mobile_swipe").removeClass('mobile_swipe1')
+            $("#mobile_swipe").addClass('mobile_swipe2')
+        }else{
+            $("#mobile_swipe").removeClass('mobile_swipe2')
+            $("#mobile_swipe").addClass('mobile_swipe1')
+        }
+        $(this).text(function(i, v){
+          return v === 'Close' ? 'Swipe Up to Get More Traffic' : 'Close'
+        
+      })
+    });
+});
+    </script>
+</body>
+</html>
